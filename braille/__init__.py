@@ -1,23 +1,13 @@
 # Copyright 2012 Jonathan Paugh
 # See COPYING for license details
-'''   coding=utf8
+# -*- coding: utf-8 *-*
+'''
 braille converter
 
 Convert text to braille
 '''
 
-
-import sys, re
-
 version = (1, 3, 2002)
-
-import ds, util, options
-from .lang import import_ruleset
-from .util import dots, gettype, warn, fwarn
-from .brl import convert
-from .options import opt
-
-
 
 
 

@@ -1,9 +1,9 @@
+# -*- coding: utf8 -*-
 # Copyright 2012 Jonathan Paugh
 # See COPYING for license details
-#coding=utf8
 
 import ds
-from .options import opt
+from options import opt
 
 import logging
 import logging.config
@@ -94,26 +94,26 @@ class LogProxy(object):
   default_logging_config = {
       'version':1,
       'formatters': {
-	'simple': {
-	  'format':
-	  '[%(asctime)s] %(name)s:%(levelname)s:%(message)s',
-	  },
-	},
+        'simple': {
+          'format':
+          '[%(asctime)s] %(name)s:%(levelname)s:%(message)s',
+          },
+        },
       'handlers': {
-	'console': {
-	  'class': 'logging.StreamHandler',
-	  'level': 'DEBUG',
-	  'formatter': 'simple',
-	  'stream': 'ext://sys.stderr',
-	  },
-	},
+        'console': {
+          'class': 'logging.StreamHandler',
+          'level': 'DEBUG',
+          'formatter': 'simple',
+          'stream': 'ext://sys.stderr',
+          },
+        },
       'loggers': {
-	'braille': {
-	  'level': 'WARNING',
-	  'handlers': ['console',],
-	  'propagate': 'yes',
-	  },
-	},
+        'braille': {
+          'level': 'WARNING',
+          'handlers': ['console',],
+          'propagate': 'yes',
+          },
+        },
       }
 
 
@@ -158,7 +158,7 @@ class LogProxy(object):
 
     for handler in logger.handlers:
       if type(handler) == logging.StreamHandler:
-	handler.stream = stream
+        handler.stream = stream
 
 
   #Proxy methods

@@ -3,7 +3,7 @@
 '''   coding=utf8
 Graphical interface to braille converter
 '''
-from . import util, opt, convert, import_ruleset
+import brl, util, options, lang
 import wx
 import  wx.lib.filebrowsebutton as filebrowse
 
@@ -37,7 +37,7 @@ class InteractiveInput(wx.Panel):
 	0, wx.ALIGN_LEFT|wx.ALL)
     vSizer.Add(self.outText, 1, wx.GROW|wx.NORTH)
 
-    if opt('debug'):
+    if options.opt('debug'):
       #Add a logging window
       self.logger = OutputText(self)
       self.logger.write = lambda s: self.logger.AppendText(s)
@@ -56,9 +56,9 @@ class InteractiveInput(wx.Panel):
     self.SetSizerAndFit(vSizer)
 
   def onTyping(self, event):
-    if opt('debug'):
+    if options.opt('debug'):
       self.logger.resetText()
-    self.outText.SetValue(convert(self.inText.GetValue()))
+    self.outText.SetValue(brl.convert(self.inText.GetValue()))
 
 class InputText(wx.TextCtrl):
   def __init__(self, *args, **kwargs):
@@ -99,7 +99,7 @@ class DebugPanel(wx.Panel):
     diag = wx.Frame(parent=topLevel, size=(500,800),
 	title='Ruleset amer-2')
     diag.text = OutputText(diag)
-    diag.text.SetValue(format_ruleset(import_ruleset('amer-2')))
+    diag.text.SetValue(format_ruleset(lang.import_ruleset('amer-2')))
     diag.vSizer = wx.BoxSizer(wx.VERTICAL)
     diag.vSizer.Add(diag.text, 1, wx.GROW)
     diag.SetSizerAndFit(diag.vSizer)

@@ -9,7 +9,7 @@ the rule they are translating. This prevents recursion problems, etc.
 '''
 
 import ds
-from .util import fwarn
+import util
 
 import re
 
@@ -92,7 +92,7 @@ def bpunct(rule, cxt, word):
   try:
     return re.sub(bre % rule['prn'], bsub % rule['brl'], word)
   except Exception as e:
-    fwarn(cxt, e.message)
+    util.fwarn(cxt, e.message)
     return word
 
 def epunct(rule, cxt, word):
@@ -102,5 +102,5 @@ def epunct(rule, cxt, word):
   try:
     return re.sub(ere % rule['prn'], esub % rule['brl'], word)
   except Exception as e:
-    fwarn(cxt, e.message)
+    util.fwarn(cxt, e.message)
     return word

@@ -36,10 +36,10 @@ class T:
   unknown = None
 
   #list of types considered as "words"
-  words = ( abbrev, char, cluster,
-	    decimal, number, nonlatin,
-	    prefix, wcell,
-	  )
+  words = (abbrev, char, cluster,
+      decimal, number, nonlatin,
+      prefix, wcell,
+      )
 
 '''
 Info about every rule of a (any) certain type.
@@ -148,7 +148,7 @@ class patt:
   #Match a lang rule
   rule = re.compile(flags=re.X,
       pattern='''^\s*(?P<type>[^\\s]+)\\s+  #type
-      ("|\')(?P<prn>[^\\2]*)\\2\\s+   #"print"	 (match string)
+      ("|\')(?P<prn>[^\\2]*)\\2\\s+   #"print" (match string)
       ("|\')(?P<brl>[^\\4]*)\\4	      #"braille" (substitution string)
       (?:\\s+(?P<priority>\d+))?\\s*  # N (rule priority, optional)
       ''')
